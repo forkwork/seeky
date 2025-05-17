@@ -5,7 +5,7 @@ use std::io::IsTerminal;
 use std::sync::Arc;
 
 pub use cli::Cli;
-use seeky_core::seeky_wrapper;
+use event_processor::EventProcessor;
 use seeky_core::config::Config;
 use seeky_core::config::ConfigOverrides;
 use seeky_core::protocol::AskForApproval;
@@ -14,8 +14,8 @@ use seeky_core::protocol::EventMsg;
 use seeky_core::protocol::InputItem;
 use seeky_core::protocol::Op;
 use seeky_core::protocol::SandboxPolicy;
+use seeky_core::seeky_wrapper;
 use seeky_core::util::is_inside_git_repo;
-use event_processor::EventProcessor;
 use tracing::debug;
 use tracing::error;
 use tracing::info;

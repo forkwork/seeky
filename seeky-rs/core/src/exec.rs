@@ -17,9 +17,9 @@ use tokio::process::Child;
 use tokio::process::Command;
 use tokio::sync::Notify;
 
-use crate::error::SeekyErr;
 use crate::error::Result;
 use crate::error::SandboxErr;
+use crate::error::SeekyErr;
 use crate::exec_linux::exec_linux;
 use crate::protocol::SandboxPolicy;
 

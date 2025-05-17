@@ -2,8 +2,8 @@ use std::io;
 use std::path::Path;
 use std::sync::Arc;
 
-use crate::error::SeekyErr;
 use crate::error::Result;
+use crate::error::SeekyErr;
 use crate::exec::ExecParams;
 use crate::exec::RawExecToolCallOutput;
 use crate::exec::StdioPolicy;

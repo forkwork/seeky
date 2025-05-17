@@ -1,7 +1,14 @@
 use std::path::PathBuf;
 use std::sync::Arc;
 
-use seeky_core::seeky_wrapper::init_seeky;
+use crossterm::event::KeyEvent;
+use ratatui::buffer::Buffer;
+use ratatui::layout::Constraint;
+use ratatui::layout::Direction;
+use ratatui::layout::Layout;
+use ratatui::layout::Rect;
+use ratatui::widgets::Widget;
+use ratatui::widgets::WidgetRef;
 use seeky_core::config::Config;
 use seeky_core::protocol::AgentMessageEvent;
 use seeky_core::protocol::AgentReasoningEvent;
@@ -17,14 +24,7 @@ use seeky_core::protocol::McpToolCallBeginEvent;
 use seeky_core::protocol::McpToolCallEndEvent;
 use seeky_core::protocol::Op;
 use seeky_core::protocol::PatchApplyBeginEvent;
-use crossterm::event::KeyEvent;
-use ratatui::buffer::Buffer;
-use ratatui::layout::Constraint;
-use ratatui::layout::Direction;
-use ratatui::layout::Layout;
-use ratatui::layout::Rect;
-use ratatui::widgets::Widget;
-use ratatui::widgets::WidgetRef;
+use seeky_core::seeky_wrapper::init_seeky;
 use tokio::sync::mpsc::UnboundedSender;
 use tokio::sync::mpsc::unbounded_channel;
 

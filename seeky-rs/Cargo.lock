@@ -459,197 +459,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e9b18233253483ce2f65329a24072ec414db782531bdbb7d0bbc4bd2ce6b7e21"
 
 [[package]]
-name = "seeky-ansi-escape"
-version = "0.0.0"
-dependencies = [
- "ansi-to-tui",
- "ratatui",
- "tracing",
-]
-
-[[package]]
-name = "seeky-apply-patch"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "pretty_assertions",
- "regex",
- "serde_json",
- "similar",
- "tempfile",
- "thiserror 2.0.12",
- "tree-sitter",
- "tree-sitter-bash",
-]
-
-[[package]]
-name = "seeky-cli"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "clap",
- "seeky-common",
- "seeky-core",
- "seeky-exec",
- "seeky-mcp-server",
- "seeky-tui",
- "serde_json",
- "tokio",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "seeky-common"
-version = "0.0.0"
-dependencies = [
- "clap",
- "seeky-core",
-]
-
-[[package]]
-name = "seeky-core"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "assert_cmd",
- "async-channel",
- "base64 0.21.7",
- "bytes",
- "seeky-apply-patch",
- "seeky-mcp-client",
- "dirs",
- "env-flags",
- "eventsource-stream",
- "fs-err",
- "fs2",
- "futures",
- "landlock",
- "libc",
- "mcp-types",
- "mime_guess",
- "openssl-sys",
- "patch",
- "path-absolutize",
- "predicates",
- "pretty_assertions",
- "rand",
- "reqwest",
- "seccompiler",
- "serde",
- "serde_json",
- "tempfile",
- "thiserror 2.0.12",
- "time",
- "tokio",
- "tokio-util",
- "toml",
- "tracing",
- "tree-sitter",
- "tree-sitter-bash",
- "uuid",
- "wiremock",
-]
-
-[[package]]
-name = "seeky-exec"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "chrono",
- "clap",
- "seeky-common",
- "seeky-core",
- "mcp-types",
- "owo-colors 4.2.0",
- "serde_json",
- "shlex",
- "tokio",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "seeky-execpolicy"
-version = "0.0.0"
-dependencies = [
- "allocative",
- "anyhow",
- "clap",
- "derive_more",
- "env_logger",
- "log",
- "multimap",
- "path-absolutize",
- "regex",
- "serde",
- "serde_json",
- "serde_with",
- "starlark",
- "tempfile",
-]
-
-[[package]]
-name = "seeky-mcp-client"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "mcp-types",
- "pretty_assertions",
- "serde",
- "serde_json",
- "tokio",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "seeky-mcp-server"
-version = "0.0.0"
-dependencies = [
- "seeky-core",
- "mcp-types",
- "pretty_assertions",
- "schemars",
- "serde",
- "serde_json",
- "tokio",
- "tracing",
- "tracing-subscriber",
-]
-
-[[package]]
-name = "seeky-tui"
-version = "0.0.0"
-dependencies = [
- "anyhow",
- "clap",
- "seeky-ansi-escape",
- "seeky-common",
- "seeky-core",
- "color-eyre",
- "crossterm",
- "lazy_static",
- "mcp-types",
- "path-clean",
- "pretty_assertions",
- "ratatui",
- "regex",
- "serde_json",
- "shlex",
- "strum 0.27.1",
- "strum_macros 0.27.1",
- "tokio",
- "tracing",
- "tracing-appender",
- "tracing-subscriber",
- "tui-input",
- "tui-markdown",
- "tui-textarea",
- "uuid",
-]
-
-[[package]]
 name = "color-eyre"
 version = "0.6.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3165,6 +2974,197 @@ checksum = "49db231d56a190491cb4aeda9527f1ad45345af50b0851622a7adb8c03b01c32"
 dependencies = [
  "core-foundation-sys",
  "libc",
+]
+
+[[package]]
+name = "seeky-ansi-escape"
+version = "0.0.0"
+dependencies = [
+ "ansi-to-tui",
+ "ratatui",
+ "tracing",
+]
+
+[[package]]
+name = "seeky-apply-patch"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "pretty_assertions",
+ "regex",
+ "serde_json",
+ "similar",
+ "tempfile",
+ "thiserror 2.0.12",
+ "tree-sitter",
+ "tree-sitter-bash",
+]
+
+[[package]]
+name = "seeky-cli"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "seeky-common",
+ "seeky-core",
+ "seeky-exec",
+ "seeky-mcp-server",
+ "seeky-tui",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "seeky-common"
+version = "0.0.0"
+dependencies = [
+ "clap",
+ "seeky-core",
+]
+
+[[package]]
+name = "seeky-core"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "assert_cmd",
+ "async-channel",
+ "base64 0.21.7",
+ "bytes",
+ "dirs",
+ "env-flags",
+ "eventsource-stream",
+ "fs-err",
+ "fs2",
+ "futures",
+ "landlock",
+ "libc",
+ "mcp-types",
+ "mime_guess",
+ "openssl-sys",
+ "patch",
+ "path-absolutize",
+ "predicates",
+ "pretty_assertions",
+ "rand",
+ "reqwest",
+ "seccompiler",
+ "seeky-apply-patch",
+ "seeky-mcp-client",
+ "serde",
+ "serde_json",
+ "tempfile",
+ "thiserror 2.0.12",
+ "time",
+ "tokio",
+ "tokio-util",
+ "toml",
+ "tracing",
+ "tree-sitter",
+ "tree-sitter-bash",
+ "uuid",
+ "wiremock",
+]
+
+[[package]]
+name = "seeky-exec"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "chrono",
+ "clap",
+ "mcp-types",
+ "owo-colors 4.2.0",
+ "seeky-common",
+ "seeky-core",
+ "serde_json",
+ "shlex",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "seeky-execpolicy"
+version = "0.0.0"
+dependencies = [
+ "allocative",
+ "anyhow",
+ "clap",
+ "derive_more",
+ "env_logger",
+ "log",
+ "multimap",
+ "path-absolutize",
+ "regex",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "starlark",
+ "tempfile",
+]
+
+[[package]]
+name = "seeky-mcp-client"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "mcp-types",
+ "pretty_assertions",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "seeky-mcp-server"
+version = "0.0.0"
+dependencies = [
+ "mcp-types",
+ "pretty_assertions",
+ "schemars",
+ "seeky-core",
+ "serde",
+ "serde_json",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
+
+[[package]]
+name = "seeky-tui"
+version = "0.0.0"
+dependencies = [
+ "anyhow",
+ "clap",
+ "color-eyre",
+ "crossterm",
+ "lazy_static",
+ "mcp-types",
+ "path-clean",
+ "pretty_assertions",
+ "ratatui",
+ "regex",
+ "seeky-ansi-escape",
+ "seeky-common",
+ "seeky-core",
+ "serde_json",
+ "shlex",
+ "strum 0.27.1",
+ "strum_macros 0.27.1",
+ "tokio",
+ "tracing",
+ "tracing-appender",
+ "tracing-subscriber",
+ "tui-input",
+ "tui-markdown",
+ "tui-textarea",
+ "uuid",
 ]
 
 [[package]]

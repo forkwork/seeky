@@ -1,7 +1,7 @@
-use seeky_core::config::Config;
-use seeky_core::config::UriBasedFileOpener;
 use ratatui::text::Line;
 use ratatui::text::Span;
+use seeky_core::config::Config;
+use seeky_core::config::UriBasedFileOpener;
 use std::borrow::Cow;
 use std::path::Path;
 
