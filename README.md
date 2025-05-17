@@ -264,7 +264,7 @@ DEBUG=true seeky
 
 ## Recipes
 
-Below are a few bite-size examples you can copy-paste. Replace the text in quotes with your own task. See the [prompting guide](https://github.com/khulnasoft/seeky/blob/main/seeky/examples/prompting_guide.md) for more tips and usage patterns.
+Below are a few bite-size examples you can copy-paste. Replace the text in quotes with your own task. See the [prompting guide](https://github.com/khulnasoft-com/seeky/blob/main/seeky/examples/prompting_guide.md) for more tips and usage patterns.
 
 | ✨  | What you type                                                                   | What happens                                                               |
 | --- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
@@ -300,7 +300,7 @@ pnpm add -g seeky
 
 ```bash
 # Clone the repository and navigate to the CLI package
-git clone https://github.com/khulnasoft/seeky.git
+git clone https://github.com/khulnasoft-com/seeky.git
 cd seeky/seeky
 
 # Enable corepack

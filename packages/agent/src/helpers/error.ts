@@ -16,7 +16,7 @@ export const handleCliError = (error: any) => {
       `\n${indent}Please open a Bug report with the information above:`
     );
     console.error(
-      `${indent}https://github.com/khulnasoft/seeky/issues/new`
+      `${indent}https://github.com/khulnasoft-com/seeky/issues/new`
     );
   }
 };

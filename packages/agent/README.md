@@ -38,7 +38,7 @@ The idea of a seeky agent is to
 
 Read more on [why Seeky Agent exists](https://www.khulnasoft.com/blog/seeky-agent).
 
-<img width="1270" alt="Seeky Agent Diagram" src="https://github.com/khulnasoft/seeky/assets/844291/406496dd-3be8-491b-a5f0-2960dd924013">
+<img width="1270" alt="Seeky Agent Diagram" src="https://github.com/khulnasoft-com/seeky/assets/844291/406496dd-3be8-491b-a5f0-2960dd924013">
 
 ### What this project is not
 
@@ -235,7 +235,7 @@ Check the installed version with:
 seeky-agent --version
 ```
 
-If it's not the [latest version](https://github.com/khulnasoft/seeky/tags), run:
+If it's not the [latest version](https://github.com/khulnasoft-com/seeky/tags), run:
 
 ```bash
 seeky-agent update
@@ -251,7 +251,7 @@ npm update -g @seeky/agent
 
 We would love your contributions to make this project better, and gladly accept PRs. Please see [./CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute.
 
-If you are looking for a good first issue, check out the [good first issue](https://github.com/khulnasoft/seeky/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) label.
+If you are looking for a good first issue, check out the [good first issue](https://github.com/khulnasoft-com/seeky/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) label.
 
 ## Feedback
 

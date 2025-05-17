@@ -78,5 +78,5 @@ export function buildBugReportUrl({
     params.set("steps", bullets.join("\n"));
   }
 
-  return `https://github.com/khulnasoft/seeky/issues/new?${params.toString()}`;
+  return `https://github.com/khulnasoft-com/seeky/issues/new?${params.toString()}`;
 }

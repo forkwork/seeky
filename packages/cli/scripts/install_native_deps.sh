@@ -65,14 +65,14 @@ mkdir -p "$BIN_DIR"
 # Until we start publishing stable GitHub releases, we have to grab the binaries
 # from the GitHub Action that created them. Update the URL below to point to the
 # appropriate workflow run:
-WORKFLOW_URL="https://github.com/khulnasoft/seeky/actions/runs/14950726936"
+WORKFLOW_URL="https://github.com/khulnasoft-com/seeky/actions/runs/14950726936"
 WORKFLOW_ID="${WORKFLOW_URL##*/}"
 
 ARTIFACTS_DIR="$(mktemp -d)"
 trap 'rm -rf "$ARTIFACTS_DIR"' EXIT
 
 # NB: The GitHub CLI `gh` must be installed and authenticated.
-gh run download --dir "$ARTIFACTS_DIR" --repo khulnasoft/seeky "$WORKFLOW_ID"
+gh run download --dir "$ARTIFACTS_DIR" --repo khulnasoft-com/seeky "$WORKFLOW_ID"
 
 # Decompress the artifacts for Linux sandboxing.
 zstd -d "$ARTIFACTS_DIR/x86_64-unknown-linux-musl/seeky-linux-sandbox-x86_64-unknown-linux-musl.zst" \

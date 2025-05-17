@@ -13,7 +13,7 @@ rec {
     meta = with pkgs.lib; {
       description = "KhulnaSoft Seeky command‑line interface";
       license     = licenses.asl20;
-      homepage    = "https://github.com/khulnasoft/seeky";
+      homepage    = "https://github.com/khulnasoft-com/seeky";
     };
   };
   devShell = pkgs.mkShell {
