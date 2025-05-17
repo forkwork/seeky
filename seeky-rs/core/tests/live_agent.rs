@@ -20,13 +20,15 @@
 use std::time::Duration;
 
 use seeky_core::Seeky;
-use seeky_core::config::Config;
 use seeky_core::error::SeekyErr;
 use seeky_core::protocol::AgentMessageEvent;
 use seeky_core::protocol::ErrorEvent;
 use seeky_core::protocol::EventMsg;
 use seeky_core::protocol::InputItem;
 use seeky_core::protocol::Op;
+mod test_support;
+use tempfile::TempDir;
+use test_support::load_default_config_for_test;
 use tokio::sync::Notify;
 use tokio::time::timeout;
 
@@ -57,7 +59,8 @@ async fn spawn_seeky() -> Result<Seeky, SeekyErr> {
         std::env::set_var("OPENAI_STREAM_MAX_RETRIES", "2");
     }
 
-    let config = Config::load_default_config_for_test();
+    let seeky_home = TempDir::new().unwrap();
+    let config = load_default_config_for_test(&seeky_home);
     let (agent, _init_id) = Seeky::spawn(config, std::sync::Arc::new(Notify::new())).await?;
 
     Ok(agent)

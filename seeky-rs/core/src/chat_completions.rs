@@ -73,11 +73,11 @@ pub(crate) async fn stream_chat_completions(
     loop {
         attempt += 1;
 
-        let mut req_khulnasoft = client.post(&url);
+        let mut req_builder = client.post(&url);
         if let Some(api_key) = &api_key {
-            req_khulnasoft = req_khulnasoft.bearer_auth(api_key.clone());
+            req_builder = req_builder.bearer_auth(api_key.clone());
         }
-        let res = req_khulnasoft
+        let res = req_builder
             .header(reqwest::header::ACCEPT, "text/event-stream")
             .json(&payload)
             .send()

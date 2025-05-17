@@ -51,10 +51,9 @@ pub fn exec_linux(
     match tool_call_output {
         Ok(Ok(output)) => Ok(output),
         Ok(Err(e)) => Err(e),
-        Err(e) => Err(SeekyErr::Io(io::Error::new(
-            io::ErrorKind::Other,
-            format!("thread join failed: {e:?}"),
-        ))),
+        Err(e) => Err(SeekyErr::Io(io::Error::other(format!(
+            "thread join failed: {e:?}"
+        )))),
     }
 }
 

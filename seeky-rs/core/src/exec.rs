@@ -349,14 +349,12 @@ pub(crate) async fn consume_truncated_output(
     // we treat it as an exceptional I/O error
 
     let stdout_reader = child.stdout.take().ok_or_else(|| {
-        SeekyErr::Io(io::Error::new(
-            io::ErrorKind::Other,
+        SeekyErr::Io(io::Error::other(
             "stdout pipe was unexpectedly not available",
         ))
     })?;
     let stderr_reader = child.stderr.take().ok_or_else(|| {
-        SeekyErr::Io(io::Error::new(
-            io::ErrorKind::Other,
+        SeekyErr::Io(io::Error::other(
             "stderr pipe was unexpectedly not available",
         ))
     })?;

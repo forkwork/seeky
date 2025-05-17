@@ -33,11 +33,11 @@ corepack prepare pnpm@10.8.1 --activate
 
 ### Workspace-specific commands
 
-| Action                                     | Command                          |
-| ------------------------------------------ | -------------------------------- |
+| Action                                     | Command                                  |
+| ------------------------------------------ | ---------------------------------------- |
 | Run a command in a specific package        | `pnpm --filter seeky run build`  |
 | Install a dependency in a specific package | `pnpm --filter seeky add lodash` |
-| Run a command in all packages              | `pnpm -r run test`               |
+| Run a command in all packages              | `pnpm -r run test`                       |
 
 ## Monorepo structure
 
@@ -46,8 +46,8 @@ seeky/
 ├── pnpm-workspace.yaml    # Workspace configuration
 ├── .npmrc                 # pnpm configuration
 ├── package.json           # Root dependencies and scripts
-├── seeky/             # Main package
-│   └── package.json       # seeky specific dependencies
+├── seeky-cli/             # Main package
+│   └── package.json       # seeky-cli specific dependencies
 └── docs/                  # Documentation (future package)
 ```
 

@@ -60,13 +60,13 @@ impl PolicyParser {
             heap.alloc(ArgMatcher::UnverifiedVarargs),
         );
 
-        let policy_khulnasoft = PolicyBuilder::new();
+        let policy_builder = PolicyBuilder::new();
         {
             let mut eval = Evaluator::new(&module);
-            eval.extra = Some(&policy_khulnasoft);
+            eval.extra = Some(&policy_builder);
             eval.eval_module(ast, &globals)?;
         }
-        let policy = policy_khulnasoft.build();
+        let policy = policy_builder.build();
         policy.map_err(|e| starlark::Error::new_kind(starlark::ErrorKind::Other(e.into())))
     }
 }
@@ -119,7 +119,7 @@ impl PolicyBuilder {
 }
 
 #[starlark_module]
-fn policy_builtins(khulnasoft: &mut GlobalsBuilder) {
+fn policy_builtins(builder: &mut GlobalsBuilder) {
     fn define_program<'v>(
         program: String,
         system_path: Option<UnpackList<String>>,
@@ -170,13 +170,13 @@ fn policy_builtins(khulnasoft: &mut GlobalsBuilder) {
         );
 
         #[expect(clippy::unwrap_used)]
-        let policy_khulnasoft = eval
+        let policy_builder = eval
             .extra
             .as_ref()
             .unwrap()
             .downcast_ref::<PolicyBuilder>()
             .unwrap();
-        policy_khulnasoft.add_program_spec(program_spec);
+        policy_builder.add_program_spec(program_spec);
         Ok(NoneType)
     }
 
@@ -185,13 +185,13 @@ fn policy_builtins(khulnasoft: &mut GlobalsBuilder) {
         eval: &mut Evaluator,
     ) -> anyhow::Result<NoneType> {
         #[expect(clippy::unwrap_used)]
-        let policy_khulnasoft = eval
+        let policy_builder = eval
             .extra
             .as_ref()
             .unwrap()
             .downcast_ref::<PolicyBuilder>()
             .unwrap();
-        policy_khulnasoft.add_forbidden_substrings(&strings.items.to_vec());
+        policy_builder.add_forbidden_substrings(&strings.items.to_vec());
         Ok(NoneType)
     }
 
@@ -201,14 +201,14 @@ fn policy_builtins(khulnasoft: &mut GlobalsBuilder) {
         eval: &mut Evaluator,
     ) -> anyhow::Result<NoneType> {
         #[expect(clippy::unwrap_used)]
-        let policy_khulnasoft = eval
+        let policy_builder = eval
             .extra
             .as_ref()
             .unwrap()
             .downcast_ref::<PolicyBuilder>()
             .unwrap();
         let compiled_regex = regex::Regex::new(&regex)?;
-        policy_khulnasoft.add_forbidden_program_regex(compiled_regex, reason);
+        policy_builder.add_forbidden_program_regex(compiled_regex, reason);
         Ok(NoneType)
     }
 

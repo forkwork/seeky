@@ -23,14 +23,16 @@ This folder is the root of a Cargo workspace. It contains quite a bit of experim
 
 ## Config
 
-The CLI can be configured via `~/.seeky/config.toml`. It supports the following options:
+The CLI can be configured via a file named `config.toml`. By default, configuration is read from `~/.seeky/config.toml`, though the `SEEKY_HOME` environment variable can be used to specify a directory other than `~/.seeky`.
+
+The `config.toml` file supports the following options:
 
 ### model
 
 The model that Seeky should use.
 
 ```toml
-model = "o3"  # overrides the default of "o4-mini"
+model = "o3"  # overrides the default of "seeky-mini-latest"
 ```
 
 ### model_provider
@@ -57,7 +59,7 @@ This option defaults to `"openai"` and the corresponding provider is defined as 
 
 ```toml
 [model_providers.openai]
-name = "KhulnaSoft"
+name = "OpenAI"
 base_url = "https://api.openai.com/v1"
 env_key = "OPENAI_API_KEY"
 wire_api = "responses"
@@ -297,6 +299,51 @@ To have Seeky use this script for notifications, you would configure it via `not
 notify = ["python3", "/Users/mbolin/.seeky/notify.py"]
 ```
 
+### history
+
+By default, Seeky CLI records messages sent to the model in `$SEEKY_HOME/history.jsonl`. Note that on UNIX, the file permissions are set to `o600`, so it should only be readable and writable by the owner.
+
+To disable this behavior, configure `[history]` as follows:
+
+```toml
+[history]
+persistence = "none"  # "save-all" is the default value
+```
+
+### file_opener
+
+Identifies the editor/URI scheme to use for hyperlinking citations in model output. If set, citations to files in the model output will be hyperlinked using the specified URI scheme so they can be ctrl/cmd-clicked from the terminal to open them.
+
+For example, if the model output includes a reference such as `【F:/home/user/project/main.py†L42-L50】`, then this would be rewritten to link to the URI `vscode://file/home/user/project/main.py:42`.
+
+Note this is **not** a general editor setting (like `$EDITOR`), as it only accepts a fixed set of values:
+
+- `"vscode"` (default)
+- `"vscode-insiders"`
+- `"windsurf"`
+- `"cursor"`
+- `"none"` to explicitly disable this feature
+
+Currently, `"vscode"` is the default, though Seeky does not verify VS Code is installed. As such, `file_opener` may default to `"none"` or something else in the future.
+
 ### project_doc_max_bytes
 
 Maximum number of bytes to read from an `AGENTS.md` file to include in the instructions sent with the first turn of a session. Defaults to 32 KiB.
+
+### tui
+
+Options that are specific to the TUI.
+
+```toml
+[tui]
+# This will make it so that Seeky does not try to process mouse events, which
+# means your Terminal's native drag-to-text to text selection and copy/paste
+# should work. The tradeoff is that Seeky will not receive any mouse events, so
+# it will not be possible to use the mouse to scroll conversation history.
+#
+# Note that most terminals support holding down a modifier key when using the
+# mouse to support text selection. For example, even if Seeky mouse capture is
+# enabled (i.e., this is set to `false`), you can still hold down alt while
+# dragging the mouse to select text.
+disable_mouse_capture = true  # defaults to `false`
+```
